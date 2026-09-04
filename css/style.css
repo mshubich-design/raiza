@@ -1,0 +1,134 @@
+/*
+  ============================================================
+  TOKENS
+  ============================================================
+
+  Variables reutilizables para mantener un sistema visual
+  consistente en todo el documento.
+*/
+
+:root {
+  --color-background: #f4f4f0;
+  --color-text: #171717;
+  --color-accent: #5b3df5;
+
+  --font-family-base: system-ui, Arial, Helvetica, sans-serif;
+
+  --font-size-body: 1rem;
+  --font-size-h1: 3rem;
+  --font-size-h2: 2rem;
+  --font-size-h3: 1.25rem;
+}
+
+/*
+  ============================================================
+  SELECTOR UNIVERSAL
+  ============================================================
+  * funciona como un comodín.
+  Selecciona todos los elementos HTML.
+*/
+
+* {
+  box-sizing: border-box;
+  /*
+    Regla temporal para visualizar las cajas.
+    Puede eliminarse cuando ya no sea necesaria.
+  */
+  outline: 1px solid;
+}
+
+
+/*
+  ============================================================
+  BODY
+  ============================================================
+
+  Define el sistema visual base del documento.
+*/
+body {
+  margin: 0;
+
+  background-color: var(--color-background);
+  color: var(--color-text);
+
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body);
+}
+
+/*
+  ============================================================
+  JERARQUÍA TIPOGRÁFICA
+  ============================================================
+
+  HTML define la jerarquía.
+  CSS controla su representación visual.
+*/
+
+h1 {
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+
+/*
+  ============================================================
+  LINKS
+  ============================================================
+
+  El color de acento identifica enlaces y acciones.
+*/
+
+a {
+  color: var(--color-accent);
+}
+
+
+/*
+  ============================================================
+  CONTENEDOR PRINCIPAL
+  ============================================================
+
+  width:
+  ocupa una proporción del espacio disponible.
+
+  max-width:
+  evita que el contenido crezca demasiado.
+
+  margin: 0 auto:
+  distribuye el espacio horizontal y centra la caja.
+*/
+
+main {
+  width: 65%;
+  min-width: 290px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+
+/*
+  ============================================================
+  ESPACIADO BÁSICO
+  ============================================================
+*/
+
+header,
+main,
+footer {
+  padding: 2rem;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+nav a {
+  margin-right: 1rem;
+}

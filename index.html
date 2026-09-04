@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!--
+    HEAD
+    Contiene información sobre el documento.
+    Aquí podemos definir metadata, título, favicon y archivos externos.
+  -->
+
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <meta
+    name="description"
+    content="Documento base para estudiar estructura HTML, semántica y cajas."
+  >
+  <title>HTML, estructura y cajas</title>
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico">
+  <!-- Hoja de estilos externa -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!--
+    HEADER
+    Contenido introductorio del documento.
+  -->
+  <header>
+
+    <h1>HTML, estructura y cajas</h1>
+
+    <p>
+      Los elementos HTML generan cajas, pero cada elemento tiene una función dentro del documento.
+    </p>
+
+    <!--
+      NAV
+      Contiene enlaces principales de navegación.
+    -->
+    <nav>
+      <a href="#elementos">Elementos</a>
+      <a href="#estructura">Estructura</a>
+      <a href="#jerarquia">Jerarquía</a>
+    </nav>
+
+  </header>
+
+  <!--
+    MAIN
+    Contiene el contenido principal del documento.
+  -->
+  <main>
+
+    <!--
+      SECTION
+      Agrupa contenido relacionado por un mismo tema.
+    -->
+    <section id="elementos">
+
+      <h2>Los elementos HTML son cajas</h2>
+
+      <p>
+        Cada elemento ocupa un espacio dentro del documento.
+        El navegador calcula su tamaño, posición y relación con otros elementos.
+      </p>
+
+      <!--
+        ARTICLE
+        Representa una unidad de contenido dentro de esta sección.
+      -->
+      <article>
+
+        <h3>No todas las cajas son iguales</h3>
+
+        <p>
+          Un título, un párrafo y un enlace generan cajas,
+          pero tienen funciones diferentes.
+        </p>
+
+        <a href="#">Esto es un enlace</a>
+
+      </article>
+
+    </section>
+
+    <section id="estructura">
+
+      <h2>Las cajas forman estructuras</h2>
+
+      <p>
+        Una caja puede contener otras cajas.
+        Las etiquetas HTML describen cómo se relaciona cada parte del contenido.
+      </p>
+
+      <article>
+
+        <h3>Una estructura contiene más estructuras</h3>
+
+        <p>
+          Este artículo está dentro de una sección y contiene
+          a su vez un título y un párrafo.
+        </p>
+
+      </article>
+
+    </section>
+
+    <section id="jerarquia">
+
+      <h2>Las etiquetas crean jerarquía</h2>
+
+      <p>
+        Un h1 representa el título principal.
+        Un h2 identifica una sección.
+        Un h3 introduce un nivel secundario.
+      </p>
+
+    </section>
+
+  </main>
+
+  <!--
+    FOOTER
+    Contiene información de cierre o complementaria.
+  -->
+  <footer>
+
+    <p>Guía de estudio · HTML + CSS</p>
+
+  </footer>
+
+</body>
+</html>
