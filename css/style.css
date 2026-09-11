@@ -8,9 +8,11 @@
 */
 
 :root {
-  --color-background: #f4f4f0;
+  --color-background: #f5f1e6;
   --color-text: #171717;
   --color-accent: #5b3df5;
+  --color-border: rgba(23, 23, 23, 0.6);
+  --border-thin: 0.25px solid var(--color-border);
 
   --font-family-base: system-ui, Arial, Helvetica, sans-serif;
 
@@ -34,7 +36,7 @@
     Regla temporal para visualizar las cajas.
     Puede eliminarse cuando ya no sea necesaria.
   */
-  outline: 1px solid;
+  outline: var(--border-thin);
 }
 
 
@@ -53,6 +55,8 @@ body {
 
   font-family: var(--font-family-base);
   font-size: var(--font-size-body);
+
+  overflow-x: hidden;
 }
 
 /*
@@ -66,14 +70,29 @@ body {
 
 h1 {
   font-size: var(--font-size-h1);
+  font-weight: 800;
+  letter-spacing: -0.04em;
 }
 
 h2 {
-  font-size: var(--font-size-h2);
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 h3 {
   font-size: var(--font-size-h3);
+  font-weight: 700;
+}
+
+section > h2,
+section > h3,
+article > h3 {
+  font-weight: 800;
+}
+
+.fungi-title {
+  font-size: clamp(2.2rem, 3vw, 3.2rem);
+  font-weight: 700;
 }
 
 
@@ -106,7 +125,7 @@ a {
 */
 
 main {
-  width: 65%;
+  width: min(1100px, 90vw);
   min-width: 290px;
   max-width: 1240px;
   margin: 0 auto;
@@ -131,4 +150,37 @@ section {
 
 nav a {
   margin-right: 1rem;
+}
+
+
+/*
+  ============================================================
+  IMÁGENES Y CONTENEDORES
+  ============================================================
+*/
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+figure {
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+figcaption {
+  text-align: center;
+  margin-top: 0.75rem;
+}
+
+section,
+header,
+footer,
+article,
+figure,
+nav {
+  border: var(--border-thin);
 }
