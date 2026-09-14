@@ -1,0 +1,119 @@
+/* Slider (mosaic) styles - JS-driven column masonry + infinite loop */
+:root {
+  --masonry-gap: 12px;
+  --slider-bg: #d7d3ca;
+}
+
+/* make gallery take most of viewport width while respecting site margins */
+.gallery-wrap {
+  width: 100vw;
+  max-width: none;
+  margin: 0 auto;
+  padding: 0 1rem 2.5rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* The track will contain two copies of the masonry set (for looping) */
+.masonry-track {
+  display: block;
+}
+
+/* Row of columns; JS will build .masonry with .masonry-column children */
+.masonry {
+  column-count: 5;
+  column-gap: 10px;
+  width: 100%;
+  margin: 0;
+  orphans: 1;
+  widows: 1;
+}
+
+.masonry-column {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.masonry-item {
+  break-inside: avoid;
+  display: block;
+  width: 100%;
+  margin: 0 0 10px;
+  background: rgba(255,255,255,0.1);
+  overflow: hidden;
+}
+
+.masonry-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: rgba(0,0,0,0.04);
+}
+
+/* copied set wrapper (visual separation not necessary) */
+.masonry-copy { margin-top: 10px; }
+
+/* integrate with site background */
+body.slider-page {
+  margin: 0;
+  background: var(--slider-bg);
+  padding-top: 120px;
+}
+
+body.slider-page header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 1.2rem 1.3rem 0.8rem;
+  border-bottom: 1px solid rgba(0,0,0,0.75);
+  background: rgba(215, 211, 202, 0.96);
+  backdrop-filter: blur(2px);
+  text-align: center;
+}
+
+body.slider-page header h1 {
+  margin: 0 0 0.55rem;
+  font-size: clamp(2.2rem, 4vw, 4.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+  font-family: "Plantagenet Cherokee", Georgia, serif;
+  text-align: center;
+}
+
+body.slider-page nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 1rem;
+  padding: 0.2rem 0 0.5rem;
+}
+
+body.slider-page nav a {
+  font-size: 0.9rem;
+  font-family: "Plantagenet Cherokee", Georgia, serif;
+}
+
+body.slider-page main {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 1200px) {
+  .masonry { column-count: 4; }
+}
+
+@media (max-width: 900px) {
+  .masonry { column-count: 3; }
+}
+
+@media (max-width: 700px) {
+  .masonry { column-count: 2; }
+  .gallery-wrap { padding: 0 0.75rem 2rem; }
+}

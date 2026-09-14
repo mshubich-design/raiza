@@ -14,7 +14,7 @@
   --color-border: rgba(23, 23, 23, 0.6);
   --border-thin: 0.25px solid var(--color-border);
 
-  --font-family-base: system-ui, Arial, Helvetica, sans-serif;
+  --font-family-base: "Plantagenet Cherokee", Georgia, serif;
 
   --font-size-body: 1rem;
   --font-size-h1: 3rem;
@@ -32,31 +32,32 @@
 
 * {
   box-sizing: border-box;
-  /*
-    Regla temporal para visualizar las cajas.
-    Puede eliminarse cuando ya no sea necesaria.
-  */
-  outline: var(--border-thin);
+  outline: none;
 }
 
+section,
+footer,
+article,
+figure,
+nav {
+  border: none;
+}
 
-/*
-  ============================================================
-  BODY
-  ============================================================
+header {
+  border-bottom: 0.25px solid var(--color-border);
+}
 
-  Define el sistema visual base del documento.
-*/
-body {
-  margin: 0;
+header,
+header * {
+  border-color: rgba(23, 23, 23, 0.6);
+}
 
-  background-color: var(--color-background);
-  color: var(--color-text);
+header {
+  text-align: center;
+}
 
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-body);
-
-  overflow-x: hidden;
+header h1 {
+  text-align: center;
 }
 
 /*
@@ -72,16 +73,19 @@ h1 {
   font-size: var(--font-size-h1);
   font-weight: 800;
   letter-spacing: -0.04em;
+  font-family: "Plantagenet Cherokee", Georgia, serif;
 }
 
 h2 {
   font-size: 2rem;
   font-weight: 700;
+  font-family: "Plantagenet Cherokee", Georgia, serif;
 }
 
 h3 {
   font-size: var(--font-size-h3);
   font-weight: 700;
+  font-family: "Plantagenet Cherokee", Georgia, serif;
 }
 
 section > h2,
@@ -182,5 +186,83 @@ footer,
 article,
 figure,
 nav {
-  border: var(--border-thin);
+  border: none;
+}
+
+/* Slider styles */
+.slider {
+  width: 100%;
+  margin: 1.5rem 0;
+  padding: 1rem 0;
+  background: #ffffff;
+}
+
+.slider-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.slider-track {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  will-change: transform, scroll-position;
+}
+
+.slide {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide img {
+  display: block;
+  height: clamp(80px, 18vh, 220px);
+  width: auto;
+  max-width: 320px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* Interaction helpers */
+.slider-viewport.dragging {
+  cursor: grabbing;
+}
+
+@media (max-width: 600px) {
+  .slide img { height: clamp(60px, 15vh, 140px); }
+}
+
+p,
+li,
+nav a,
+footer p,
+figcaption,
+label,
+button,
+input,
+textarea,
+select {
+  font-family: "Plantagenet Cherokee", Georgia, serif;
+}
+
+.portada {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-top: 0;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  border: none;
+}
+
+.portada-imagen {
+  display: block;
+  width: 100%;
+  height: min(72vh, 1080px);
+  max-height: 1080px;
+  min-height: 540px;
+  object-fit: cover;
+  object-position: center;
+  background: #ddd;
 }
