@@ -95,7 +95,8 @@ Un documento HTML tiene una estructura base.
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
+<head> 
+<link rel="stylesheet" href="https://use.typekit.net/ffk3trd.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -146,7 +147,8 @@ lang="es"
 
 # Head
 
-`<head>` contiene información **sobre el documento**.
+`<head> 
+<link rel="stylesheet" href="https://use.typekit.net/ffk3trd.css">` contiene información **sobre el documento**.
 
 Esta información normalmente no forma parte del contenido visible de la página.
 
@@ -162,7 +164,8 @@ Aquí podemos definir:
 Ejemplo:
 
 ```html
-<head>
+<head> 
+<link rel="stylesheet" href="https://use.typekit.net/ffk3trd.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -231,7 +234,8 @@ También puede utilizar otros formatos:
 
 ## Hojas de estilo
 
-Desde `<head>` podemos conectar un archivo CSS externo.
+Desde `<head> 
+<link rel="stylesheet" href="https://use.typekit.net/ffk3trd.css">` podemos conectar un archivo CSS externo.
 
 ```html
 <link rel="stylesheet" href="style.css">
