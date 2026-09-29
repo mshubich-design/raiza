@@ -1,34 +1,52 @@
+
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <link rel="stylesheet" href="https://use.typekit.net/ffk3trd.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Banco de imágenes — Raiza</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/slider.css">
-  </head>
-  <body class="slider-page">
-    <header class="main-header">
-      <div class="logo">
-        <a href="index.html">Raiza — Conversaciones Subterráneas</a>
-      </div>
 
-      <nav aria-label="Navegación principal">
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="micorrizas.html">Micorrizas</a></li>
-          <li><a href="descomposicion.html">Descomposición</a></li>
-          <li><a href="redes-de-micelio.html">Redes de micelio</a></li>
-          <li><a href="banco-de-imagenes.html">Banco de imágenes</a></li>
-        </ul>
-      </nav>
-    </header>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <main>
-      <div class="gallery-wrap">
+  <title>Banco de imágenes — Raiza</title>
+
+  <link rel="stylesheet" href="https://use.typekit.net/ffk3trd.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/slider.css">
+</head>
+
+<body class="slider-page">
+
+  <!-- ENCABEZADO -->
+  <header class="main-header">
+
+    <div class="logo">
+      <a href="index.html">Conversaciones Subterráneas</a>
+    </div>
+
+    <nav aria-label="Navegación principal">
+      <ul class="nav-links">
+        <li><a href="micorrizas.html">Micorrizas</a></li>
+        <li><a href="descomposicion.html">Descomposición</a></li>
+        <li><a href="redes-de-micelio.html">Redes de micelio</a></li>
+        <li><a href="banco-de-imagenes.html">Banco de imágenes</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <!-- GALERÍA -->
+  <main>
+
+    <div class="gallery-wrap">
+
+      <!-- Ventana que contiene el movimiento -->
+      <div class="gallery-viewport">
+
+        <!-- El JavaScript construye las copias aquí -->
         <div class="masonry-track">
+
+          <!-- Galería original: conserva todas tus imágenes -->
           <div class="masonry">
+
             <div class="masonry-item"><img src="imagenes/Bosque/IMG_4290.jpg" alt=""></div>
             <div class="masonry-item"><img src="imagenes/Bosque/IMG_4318.jpg" alt=""></div>
             <div class="masonry-item"><img src="imagenes/Bosque/IMG_4322.jpg" alt=""></div>
@@ -78,16 +96,29 @@
             <div class="masonry-item"><img src="imagenes/hongo poliopra:respira/IMG_4421.jpg" alt=""></div>
 
             <div class="masonry-item"><img src="imagenes/polipor/IMG_4408.jpg" alt=""></div>
+
             <div class="masonry-item"><img src="imagenes/telaraña/IMG_4380.jpg" alt=""></div>
+
           </div>
+          <!-- Fin de la galería original -->
+
         </div>
+        <!-- Fin de masonry-track -->
+
       </div>
-    </main>
+      <!-- Fin de gallery-viewport -->
 
-    <footer>
-      <p>Investigación: Hongos y Wood Wide Web</p>
-    </footer>
+    </div>
 
-    <script src="./js/slider.js"></script>
-  </body>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <p>Investigación: Hongos y Wood Wide Web</p>
+  </footer>
+
+  <!-- JavaScript de la galería -->
+  <script src="./js/slider.js"></script>
+
+</body>
 </html>

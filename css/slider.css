@@ -1,67 +1,32 @@
-/* Slider (mosaic) styles - JS-driven column masonry + infinite loop */
+/* =========================================
+   RAIZA — MOSAICO INFINITO CONTROLADO
+   ========================================= */
+
 :root {
-  --masonry-gap: 12px;
+  --masonry-gap: 6px;
   --slider-bg: #d7d3ca;
 }
 
-/* make gallery take most of viewport width while respecting site margins */
-.gallery-wrap {
-  width: 100vw;
-  max-width: none;
-  margin: 0 auto;
-  padding: 0 1rem 2.5rem;
-  box-sizing: border-box;
-  overflow: hidden;
-}
+/* Página fija: el movimiento ocurre dentro de la galería */
 
-/* The track will contain two copies of the masonry set (for looping) */
-.masonry-track {
-  display: block;
-}
-
-/* Row of columns; JS will build .masonry with .masonry-column children */
-.masonry {
-  column-count: 5;
-  column-gap: 10px;
-  width: 100%;
-  margin: 0;
-  orphans: 1;
-  widows: 1;
-}
-
-.masonry-column {
-  flex: 1 1 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.masonry-item {
-  break-inside: avoid;
-  display: block;
-  width: 100%;
-  margin: 0 0 10px;
-  background: rgba(255,255,255,0.1);
-  overflow: hidden;
-}
-
-.masonry-item img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  background: rgba(0,0,0,0.04);
-}
-
-/* copied set wrapper (visual separation not necessary) */
-.masonry-copy { margin-top: 10px; }
-
-/* integrate with site background */
+html,
 body.slider-page {
+  width: 100%;
+  height: 100%;
   margin: 0;
-  background: var(--slider-bg);
-  padding-top: 120px;
+  overflow: hidden;
 }
+
+body.slider-page {
+  position: relative;
+  padding-top: 120px;
+  box-sizing: border-box;
+  background: var(--slider-bg);
+}
+
+/* =========================================
+   ENCABEZADO
+   ========================================= */
 
 body.slider-page header {
   position: fixed;
@@ -70,7 +35,7 @@ body.slider-page header {
   right: 0;
   z-index: 50;
   padding: 1.2rem 1.3rem 0.8rem;
-  border-bottom: 1px solid rgba(0,0,0,0.75);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.75);
   background: rgba(215, 211, 202, 0.96);
   backdrop-filter: blur(2px);
   text-align: center;
@@ -98,22 +63,136 @@ body.slider-page nav a {
   font-family: "Plantagenet Cherokee", Georgia, serif;
 }
 
+/* =========================================
+   ESTRUCTURA
+   ========================================= */
+
 body.slider-page main {
   width: 100%;
+  height: calc(100vh - 120px);
   max-width: none;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
+.gallery-wrap {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 8px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.gallery-viewport {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  /* Indica que la rueda se controla con JavaScript */
+  overscroll-behavior: contain;
+}
+
+.masonry-track {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+/* =========================================
+   MOSAICO Y COLUMNAS
+   ========================================= */
+
+.masonry {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: start;
+  gap: var(--masonry-gap);
+  width: 100%;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+}
+
+.masonry-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--masonry-gap);
+  min-width: 0;
+}
+
+.masonry-item {
+  display: block;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  break-inside: avoid;
+}
+
+.masonry-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Copias consecutivas sin separación */
+
+.masonry-copy {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+/* No mostrar el pie dentro de esta vista */
+
+body.slider-page footer {
+  display: none;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
 @media (max-width: 1200px) {
-  .masonry { column-count: 4; }
+  .masonry {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 900px) {
-  .masonry { column-count: 3; }
+  .masonry {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 700px) {
-  .masonry { column-count: 2; }
-  .gallery-wrap { padding: 0 0.75rem 2rem; }
+  body.slider-page {
+    padding-top: 120px;
+  }
+
+  body.slider-page main {
+    height: calc(100vh - 120px);
+  }
+
+  .gallery-wrap {
+    padding: 0 6px;
+  }
+
+  .masonry {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .masonry-column {
+    gap: 5px;
+  }
 }
